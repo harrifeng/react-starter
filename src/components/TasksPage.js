@@ -50,7 +50,11 @@ class TasksPage extends Component {
 
     return TASK_STATUSES.map(status => {
       const statusTasks = tasks.filter(task => task.status === status);
-      return <TaskList key={status} status={status} tasks={statusTasks}/>;
+      return (<TaskList key={status}
+              status={status}
+              tasks={statusTasks}
+              onStatusChange={this.props.onStatusChange}
+              />);
     });
   }
 
@@ -89,11 +93,11 @@ class TasksPage extends Component {
           </form>
         )}
         <div className="tasks">
-          <div className="task-lists">
-          {this.renderTasksLists()}
-          </div>
-        </div>
+        <div className="task-lists">
+        {this.renderTasksLists()}
       </div>
+        </div>
+        </div>
     );
   }
 }

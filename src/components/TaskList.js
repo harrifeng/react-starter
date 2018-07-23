@@ -9,7 +9,10 @@ const TaskList = props => {
       </div>
       {
         props.tasks.map(task =>(
-          <Task key={task.id} task={task}/>
+          <Task key={task.id}
+                task={task}
+                onStatusChange={props.onStatusChange}
+                />
         ))
       }
     </div>
